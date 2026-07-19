@@ -23,7 +23,7 @@ common_ports = {
 } # Dictionary for the commonly targeted ports
 
 
-def portscanner(target,port): # Function for checking induvidual ports
+def portscanner(target,port): # Function for checking ports
   try:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Create a TCP socket for connecting to the port 
     
@@ -54,7 +54,7 @@ for port, service in common_ports.items(): # To check every port in the port dic
   counter += 1
   print(f"Scanning {counter} of {len(commmon_ports)}")
   if portscanner(target, port): # Checks if the function returns True or False - open or closed
-    openports.append((port, service)) # Adds the name of the open port to the open ports list
+    openports.append((port, service)) # Adds the name of the open port to the open ports dictionary
     print(f"{port}: {service} is open") # Lets user know straight away if open port is found
 
 
